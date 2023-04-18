@@ -29,7 +29,7 @@ class CategoryController extends Controller
     }
 
     public function updateCategory(Request $request){
-        Category::updateCategory($request);
+        Category::saveCategory($request);
         return back()->with('message', 'Info Updated');
     }
 

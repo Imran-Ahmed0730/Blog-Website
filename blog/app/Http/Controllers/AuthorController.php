@@ -28,7 +28,7 @@ class AuthorController extends Controller
     }
 
     public function updateAuthor(Request $request){
-        Author::updateAuthor($request);
+        Author::saveAuthor($request);
         return back()->with('message', 'Info Updated');
     }
 
