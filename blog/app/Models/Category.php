@@ -9,8 +9,9 @@ class Category extends Model
 {
     private static $category, $image, $imageNewName, $directory, $imageUrl;
     public static function saveCategory($request){
-        if (self::$category= Category::find($request->id))
+        if (Category::find($request->id))
         {
+            self::$category= Category::find($request->id);
             if ($request->file('image')){
                 if (self::$category->image){
                     if (file_exists(self::$category->image)){

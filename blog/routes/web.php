@@ -42,4 +42,12 @@ Route::middleware([
     Route::post('/update-author', [AuthorController::class, 'updateAuthor'])->name('update.author');
     Route::get('/status-author/{id}', [AuthorController::class, 'statusAuthor'])->name('status.author');
     Route::post('/delete-author', [AuthorController::class, 'deleteAuthor'])->name('delete.author');
+
+    Route::get('/add-blog', [blogController::class, 'addBlog'])->name('add.blog');
+    Route::post('/new-blog', [blogController::class, 'newBlog'])->name('new.blog');
+    Route::get('/manage-blog', [blogController::class, 'manageBlog'])->name('manage.blog');
+    Route::get('/edit-blog/{id}', [blogController::class, 'editBlog'])->name('edit.blog');
+    Route::post('/update-blog', [blogController::class, 'updateBlog'])->name('update.blog');
+    Route::get('/status-blog/{id}', [blogController::class, 'statusBlog'])->name('status.blog');
+    Route::post('/delete-blog', [blogController::class, 'deleteBlog'])->name('delete.blog');
 });

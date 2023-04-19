@@ -11,8 +11,9 @@ class Author extends Model
 
     private static $author, $image, $imageNewName, $directory, $imageUrl;
     public static function saveAuthor($request){
-        if (self::$author= Author::find($request->id))
+        if (Author::find($request->id))
         {
+            self::$author = Author::find($request->id);
             if ($request->file('image')){
                 if (self::$author->image){
                     if (file_exists(self::$author->image)){
