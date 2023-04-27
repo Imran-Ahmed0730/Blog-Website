@@ -28,8 +28,8 @@
                                 <td>
                                     <img src="{{asset($blog->image)}}" alt="" srcset="" class="img-fluid">
                                 </td>
-                                <td>{{$blog->category_id}}</td>
-                                <td>{{$blog->author_id}}</td>
+                                <td>{{$blog->category->category_name}}</td>
+                                <td>{{$blog->author->name}}</td>
                                 <td>{{$blog->blog_title}}</td>
                                 <td>{{$blog->description}}</td>
                                 <td>{{$blog->status}}</td>

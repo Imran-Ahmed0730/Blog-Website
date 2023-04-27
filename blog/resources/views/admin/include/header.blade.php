@@ -94,10 +94,13 @@
                         </li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a class="dropdown-item" href="authentication-signup-with-header-footer.html">
+                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit()">
                                 <div class="d-flex align-items-center">
                                     <div class="setting-icon"><i class="bi bi-lock-fill"></i></div>
                                     <div class="setting-text ms-3"><span>Logout</span></div>
+                                    <form action="{{route('logout')}}" method="post" id="logoutForm">
+                                        @csrf
+                                    </form>
                                 </div>
                             </a>
                         </li>

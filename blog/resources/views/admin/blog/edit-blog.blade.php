@@ -14,11 +14,11 @@
                         <input type="hidden" value="{{$blog->id}}" name="id">
                         <div class="col-12">
                             <label class="form-label">Category Name</label>
-                            <input type="text" class="form-control" name="author_id" value="{{$blog->author_id}}" readonly>
+                            <input type="text" class="form-control" name="author_id" value="{{$blog->category->category_name}}" readonly>
                         </div>
                         <div class="col-12">
                             <label class="form-label">Author Name</label>
-                            <input type="text" class="form-control" name="category_id" value="{{$blog->category_id}}" readonly>
+                            <input type="text" class="form-control" name="category_id" value="{{$blog->author->name}}" readonly>
                         </div>
                         <div class="col-12">
                             <label class="form-label">Blog Title</label>

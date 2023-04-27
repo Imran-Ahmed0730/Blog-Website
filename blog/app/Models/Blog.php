@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Author;
 
 class Blog extends Model
 {
@@ -79,6 +81,13 @@ class Blog extends Model
     public static function deleteBlog($request){
         self::$blog = Blog::find($request->id);
         self::$blog->delete();
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+    public function author(){
+        return $this->belongsTo(Author::class);
     }
 
 }

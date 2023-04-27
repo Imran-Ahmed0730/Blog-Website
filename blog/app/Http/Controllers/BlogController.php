@@ -10,7 +10,9 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function index(){
-        return view('front-end.home.home');
+        return view('front-end.home.home', [
+            'blogs'=>Blog::where('status', 1)->get()
+        ]);
     }
     public function addBlog(){
         return view('admin.blog.add-blog',[
@@ -25,16 +27,15 @@ class BlogController extends Controller
     }
 
     public function manageBlog(){
+//        return Blog::with('category', 'author')->get();
         return view('admin.blog.manage-blog', [
-            'blogs'=>Blog::all()
+            'blogs'=>Blog::with('category', 'author')->get()
         ]);
     }
 
     public function editBlog($id){
         return view('admin.blog.edit-blog', [
             'blog'=>Blog::find($id),
-            'authors' => Author::all(),
-            'categories'=>Category::all()
         ]);
     }
 
