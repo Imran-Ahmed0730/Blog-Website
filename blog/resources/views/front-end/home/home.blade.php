@@ -472,238 +472,38 @@
             </div>
             <div class="row">
                 <div class="col-md-7 col-lg-8">
-                    <div class="card mb-4">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-md-4">
-                                <a href="single-layout-one.html">
-                                    <img src="{{asset('front-end-asset')}}/assets
-/images/time.jpg" class="card-img" alt="">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <ul class="category-tag-list">
-                                        <li class="category-tag-name">
-                                            <a href="#">Lifestyle</a>
-                                        </li>
-                                    </ul>
-                                    <h5 class="card-title title-font"><a href="single-layout-one.html">Making time for travel</a>
-                                    </h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor
-                                        sit,
-                                        amet consectetur adipisicing elit. Sapiente, asperiores.<p>
-                                    <div class="author-date">
-                                        <a class="author" href="#">
-                                            <img src="{{asset('front-end-asset')}}/assets
-/images/writer.jpg" alt="" class="rounded-circle" />
-                                            <span class="writer-name-small">Julie</span>
-                                        </a>
-                                        <a class="date" href="#">
-                                            <span>21 Dec, 2019</span>
-                                        </a>
+                    @foreach($blogs as $blog)
+                        <div class="card mb-4">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-md-4">
+                                    <a href="single-layout-one.html">
+                                        <img src="{{asset($blog->image)}}" class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <ul class="category-tag-list">
+                                            <li class="category-tag-name">
+                                                <a href="#">{{$blog->category->category_name}}</a>
+                                            </li>
+                                        </ul>
+                                        <h5 class="card-title title-font"><a href="{{route('blog.details', ['slug'=>$blog->slug])}}">{{$blog->blog_title}}</a>
+                                        </h5>
+                                        <p class="card-text">{{$blog->description}}<p>
+                                        <div class="author-date">
+                                            <a class="author" href="#">
+                                                <img src="{{asset($blog->author->image)}}" class="rounded-circle" />
+                                                <span class="writer-name-small">{{$blog->author->name}}</span>
+                                            </a>
+                                            <a class="date" href="#">
+                                                <span>{{$blog->date}}</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card mb-4">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-md-4">
-                                <a href="single-layout-one.html"> <img src="{{asset('front-end-asset')}}/assets
-/images/alone-house.jpg" class="card-img"
-                                                                       alt=""></a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <ul class="category-tag-list">
-                                        <li class="category-tag-name">
-                                            <a href="#">Lifestyle</a>
-                                        </li>
-                                    </ul>
-                                    <h5 class="card-title title-font"><a href="single-layout-one.html">Abandon houses</a></h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ipsum rem,
-                                        delectus deserunt consectetur saepe? Expedita sapiente rerum nostrum fuga non iure minima sunt
-                                        inventore.
-                                    <p>
-                                    <div class="author-date">
-                                        <a class="author" href="#">
-                                            <img src="{{asset('front-end-asset')}}/assets
-/images/writer.jpg" alt="" class="rounded-circle" />
-                                            <span class="writer-name-small">Julie</span>
-                                        </a>
-                                        <a class="date" href="#">
-                                            <span>21 Dec, 2019</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-4">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-md-4">
-                                <a href="single-layout-one.html"><img src="{{asset('front-end-asset')}}/assets
-/images/taj.jpg" class="card-img" alt=""></a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <ul class="category-tag-list">
-                                        <li class="category-tag-name">
-                                            <a href="#">photography</a>
-                                        </li>
-                                    </ul>
-                                    <h5 class="card-title title-font"><a href="single-layout-one.html"> Super easy ways to learn
-                                            everything about
-                                            photography</a></h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ipsum rem,
-                                        delectus deserunt consectetur saepe? <p>
-                                    <div class="author-date">
-                                        <a class="author" href="#">
-                                            <img src="{{asset('front-end-asset')}}/assets
-/images/writer.jpg" alt="" class="rounded-circle" />
-                                            <span class="writer-name-small">Julie</span>
-                                        </a>
-                                        <a class="date" href="#">
-                                            <span>21 Dec, 2019</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5 col-lg-4">
-                    <div class="recent-posts">
-                        <div class="sidebar-title">
-                            <h5><i class="fas fa-circle"></i>Trending this week</h5>
-                        </div>
-                        <div class="sidebar-content">
-                            <ul class="sidebar-list">
-                                <li class="sidebar-item">
-                                    <div class="num-left">
-                                        1
-                                    </div>
-                                    <div class="content-right">
-                                        <a href="single-layout-one.html">Healthy Dieting Habits for any age</a>
-                                    </div>
-                                </li>
-                                <li class="sidebar-item">
-                                    <div class="num-left">
-                                        2
-                                    </div>
-                                    <div class="content-right">
-                                        <a href="single-layout-one.html"> 10 foods you should try in Kathmandu</a>
-                                    </div>
-                                </li>
-                                <li class="sidebar-item">
-                                    <div class="num-left">
-                                        3
-                                    </div>
-                                    <div class="content-right">
-                                        <a href="single-layout-one.html">Everything You Wanted to Know About Love Life</a>
-                                    </div>
-                                </li>
-                                <li class="sidebar-item">
-                                    <div class="num-left">
-                                        4
-                                    </div>
-                                    <div class="content-right">
-                                        <a href="single-layout-one.html">Yoga works only under these conditions</a>
-                                    </div>
-                                </li>
-                                <li class="sidebar-item">
-                                    <div class="num-left">
-                                        5
-                                    </div>
-                                    <div class="content-right">
-                                        <a href="single-layout-one.html">Top 10 mysterious places you didn't know</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="instagram-posts">
-                        <div class="sidebar-title">
-                            <h5><i class="fas fa-circle"></i>Instagram Posts</h5>
-                        </div>
-                        <div class="sidebar-content">
-                            <div class="row no-gutters">
-                                <div class="col-6 col-lg-4">
-                                    <div class="image-item insta-item">
-                                        <a href="#"> <img src="{{asset('front-end-asset')}}/assets
-/images/beautiful-girl.jpg" alt=""></a>
-                                        <a href="#">
-                                            <div class="image-hover">
-                                                <i class="fas fa-heart"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-4">
-                                    <div class="image-item insta-item">
-                                        <a href="#"> <img src="{{asset('front-end-asset')}}/assets
-/images/lighthouse.jpg" alt=""></a>
-                                        <a href="#">
-                                            <div class="image-hover">
-                                                <i class="fas fa-heart"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-lg-4">
-                                    <div class="image-item insta-item">
-                                        <a href="#"><img src="{{asset('front-end-asset')}}/assets
-/images/travel-man.jpg" alt=""></a>
-                                        <a href="#">
-                                            <div class="image-hover">
-                                                <i class="fas fa-heart"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-4">
-                                    <div class="image-item insta-item">
-                                        <a href="#"> <img src="{{asset('front-end-asset')}}/assets
-/images/blonde-girl.jpg" alt=""></a>
-                                        <a href="#">
-                                            <div class="image-hover">
-                                                <i class="fas fa-heart"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-4">
-                                    <div class="image-item insta-item">
-                                        <a href="#"><img src="{{asset('front-end-asset')}}/assets
-/images/biker.jpg" alt=""></a>
-                                        <a href="#">
-                                            <div class="image-hover">
-                                                <i class="fas fa-heart"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-lg-4">
-                                    <div class="image-item insta-item">
-                                        <a href="#"> <img src="{{asset('front-end-asset')}}/assets
-/images/shoes.jpg" alt=""></a>
-                                        <a href="#">
-                                            <div class="image-hover">
-                                                <i class="fas fa-heart"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="insta-link">
-                                        <a href="#" target="_blank" class=" btn-solid">Follow us <i class="fab fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

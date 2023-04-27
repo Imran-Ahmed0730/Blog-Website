@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\Author;
 use App\Models\Blog;
+use Session;
 
 use App\Models\Category;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -12,6 +14,12 @@ class BlogController extends Controller
     public function index(){
         return view('front-end.home.home', [
             'blogs'=>Blog::where('status', 1)->get()
+        ]);
+    }
+    public function blogDetails($slug){
+        return view('front-end.blog.blog-details', [
+            'blog'=>Blog::where('slug', $slug)->first(),
+            'user'=>Customer::where('id', Session::get('customerId'))->first()
         ]);
     }
     public function addBlog(){

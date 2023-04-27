@@ -5,8 +5,17 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CustomerController;
 
 Route::get('/',[BlogController::class, 'index'])->name('/');
+Route::get('/blog-details/{slug}',[BlogController::class, 'blogDetails'])->name('blog.details');
+
+
+Route::get('/register-register', [CustomerController::class, 'index'])->name('customer.register');
+Route::post('/new-register', [CustomerController::class, 'newCustomer'])->name('new.register');
+Route::get('/customer-login', [CustomerController::class, 'customerLogin'])->name('customer.login');
+Route::post('/customer-login', [CustomerController::class, 'customerLoginCheck'])->name('customer.login');
+Route::get('/customer-logout', [CustomerController::class, 'customerLogout'])->name('customer.logout');
 
 /*
 |--------------------------------------------------------------------------

@@ -42,7 +42,6 @@
 /css/responsive.css" />
     <link rel="stylesheet" href="{{asset('front-end-asset')}}/assets
 /css/dark.css" />
-
     <title>
         @yield('title')
     </title>
@@ -94,6 +93,7 @@
 /js/theia-sticky-sidebar.min.js"></script>
 <script src="{{asset('front-end-asset')}}/assets
 /js/main.js"></script>
+
 </body>
 
 

@@ -2,7 +2,7 @@
  * easy-pie-chart
  * Lightweight plugin to render simple, animated and retina optimized pie charts
  *
- * @license 
+ * @license
  * @author Robert Fleischmann <rendro87@gmail.com> (http://robert-fleischmann.de)
  * @version 2.1.7
  **/
@@ -266,7 +266,7 @@ var EasyPieChart = function(el, opts) {
 		this.el = el;
 		this.options = options;
 
-		// merge user options into default options
+		// merge register options into default options
 		for (var i in defaultOptions) {
 			if (defaultOptions.hasOwnProperty(i)) {
 				options[i] = opts && typeof(opts[i]) !== 'undefined' ? opts[i] : defaultOptions[i];

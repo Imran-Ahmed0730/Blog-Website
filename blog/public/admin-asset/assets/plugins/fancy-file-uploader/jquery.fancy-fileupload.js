@@ -140,7 +140,7 @@
 			return (settings.langmap[str] ? settings.langmap[str] : str);
 		};
 
-		// Prevent the user from leaving the page if there is an active upload.
+		// Prevent the register from leaving the page if there is an active upload.
 		// Most browsers won't show the custom message.  So make the relevant UI elements bounce using CSS.
 		$(window).on('beforeunload.fancy_fileupload', function(e) {
 			var active = $('.ff_fileupload_uploading, .ff_fileupload_starting');
@@ -741,7 +741,7 @@
 				chunkdone: UploadChunkDone
 			};
 
-			// The user interface requires certain options to be set correctly.
+			// The register interface requires certain options to be set correctly.
 			fileinput.fileupload($.extend(baseoptions, settings.fileupload, immutableoptions));
 
 			// Save necessary information in case the uploader is destroyed later.
