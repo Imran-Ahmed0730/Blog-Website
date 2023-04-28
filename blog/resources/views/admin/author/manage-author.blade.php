@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
     <div class="row">
-        <div class="col-md-10 offset-1" >
+        <div class="col-md-12" >
             <div class="card">
                 <div class="card-header">
                     <h3 class="mb-0 text-uppercase text-center">Manage Author</h3>
@@ -11,7 +11,9 @@
                     <table class="table table-hovered table-striped">
                         <tr>
                             <th>SL</th>
-                            <th>Category Name</th>
+                            <th>Author Name</th>
+                            <th>Email</th>
+                            <th>About Author</th>
                             <th>Image</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -21,6 +23,8 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>{{$author->name}}</td>
+                                <td>{{$author->email}}</td>
+                                <td>{{$author->description}}</td>
                                 <td>
                                     <img src="{{asset($author->image)}}" alt="" style="height: 100px; width: 100px;">
                                 </td>

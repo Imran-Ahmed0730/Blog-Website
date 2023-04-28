@@ -21,8 +21,29 @@ class Comment extends Model
         self::$comment->save();
     }
 
+    public static function statusComment($id){
+        self::$comment = Comment::find($id);
+        if (self::$comment->status == 1){
+            self::$comment->status = 0;
+        }
+        else
+            self::$comment->status = 1;
+        self::$comment->save();
+    }
+    public static function deleteComment($request){
+        self::$comment = comment::find($request->id);
+        self::$comment->delete();
+    }
+
     public function user(){
         return $this->belongsTo(Customer::class);
+    }
+
+    public function blog(){
+        return $this->belongsTo(Blog::class);
+    }
+    public function author(){
+        return $this->belongsTo(Author::class);
     }
 
 

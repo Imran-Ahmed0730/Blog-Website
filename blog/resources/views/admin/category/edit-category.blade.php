@@ -16,6 +16,10 @@
                                 <input type="text" class="form-control" name="category_name" value="{{$category->category_name}}">
                             </div>
                             <div class="col-12">
+                                <label class="form-label">About Category</label>
+                                <textarea name="description" id="" cols="30" rows="10" class="form-control">{{$category->description}}</textarea>
+                            </div>
+                            <div class="col-12">
                                 <label class="form-label">Image</label>
                                 <input type="file" class="form-control" name="image">
                                 <img src="{{asset($category->image)}}" alt="" class="img-fluid my-2">

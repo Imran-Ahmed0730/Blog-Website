@@ -16,6 +16,14 @@
                                 <input type="text" class="form-control" name="name" value="{{$author->name}}">
                             </div>
                             <div class="col-12">
+                                <label class="form-label">Author Email</label>
+                                <input type="email" class="form-control" value="{{$author->email}}" readonly>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">About Author</label>
+                                <textarea name="description" id="" cols="30" rows="10" class="form-control">{{$author->description}}</textarea>
+                            </div>
+                            <div class="col-12">
                                 <label class="form-label">Image</label>
                                 <input type="file" class="form-control" name="image">
                                 <img src="{{asset($author->image)}}" alt="" class="img-fluid my-2">

@@ -33,6 +33,8 @@ class Author extends Model
         }
 
         self::$author->name = $request->name;
+        self::$author->email = $request->email;
+        self::$author->description = $request->description;
         self::$author->save();
     }
     private static function saveImage($request){

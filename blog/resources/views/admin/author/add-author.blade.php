@@ -15,6 +15,14 @@
                                 <input type="text" class="form-control" name="name">
                             </div>
                             <div class="col-12">
+                                <label class="form-label">Author Email</label>
+                                <input type="email" class="form-control" name="email">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">About Author</label>
+                                <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+                            </div>
+                            <div class="col-12">
                                 <label class="form-label">Image</label>
                                 <input type="file" class="form-control" name="image">
                             </div>

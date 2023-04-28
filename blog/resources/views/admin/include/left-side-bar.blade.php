@@ -17,6 +17,9 @@
             <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Blog Module">
                 <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-blog" type="button"><i class="bi bi-briefcase-fill"></i></button>
             </li>
+            <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Comment Module">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-comment" type="button"><i class="bi bi-chat-square-text"></i></i></button>
+            </li>
         </ul>
     </div>
     <div class="textmenu">
@@ -69,6 +72,17 @@
                     </div>
                     <a href="{{route('add.author')}}" class="list-group-item"><i class="bi bi-box-seam"></i>Add Author</a>
                     <a href="{{route('manage.author')}}" class="list-group-item"><i class="bi bi-box-seam"></i>Manage Author</a>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-comment">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-0">Comments</h5>
+                        </div>
+                        <small class="mb-0">Some placeholder content</small>
+                    </div>
+                    <a href="{{route('manage.comment')}}" class="list-group-item"><i class="bi bi-chat-right-dots"></i>Manage Comment</a>
                 </div>
             </div>
         </div>

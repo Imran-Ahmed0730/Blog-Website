@@ -31,6 +31,7 @@ class Category extends Model
         }
 
         self::$category->category_name = $request->category_name;
+        self::$category->description = $request->description;
         self::$category->save();
     }
     private static function saveImage($request){

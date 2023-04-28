@@ -13,8 +13,9 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function index(){
+//        return Blog::with('category')->where('status', 1)->orderby('date', 'desc')->get();
         return view('front-end.home.home', [
-            'blogs'=>Blog::where('status', 1)->orderby('date', 'desc')->get(),
+            'blogs'=>Blog::with('category')->where('status', 1)->orderby('date', 'desc')->get(),
             'categories'=>Category::where('status', 1)->get(),
             'authors' => Author::where('status', 1)->get()
         ]);

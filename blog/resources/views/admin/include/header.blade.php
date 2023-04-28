@@ -43,10 +43,9 @@
                         <li>
                             <a class="dropdown-item" href="#">
                                 <div class="d-flex align-items-center">
-                                    <img src="{{asset('admin-asset')}}/assets/images/avatars/avatar-1.png" alt="" class="rounded-circle" width="60" height="60">
+                                    <img src="{{asset('admin-asset')}}/assets/images/avatars/default-image.jpg" alt="" class="rounded-circle" width="60" height="60">
                                     <div class="ms-3">
-                                        <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                                        <small class="mb-0 dropdown-user-designation text-secondary">HR Manager</small>
+                                        <h6 class="mb-0 dropdown-user-name">{{ Auth::user()->name }}</h6>
                                     </div>
                                 </div>
                             </a>

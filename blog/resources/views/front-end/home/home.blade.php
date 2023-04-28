@@ -70,58 +70,7 @@
                     </div>
                 </div>
             </div>
-            <div class="more-content-grid">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card simple-overlay-card mt-0">
-                            <a href="single-layout-one.html"><img src="{{asset('front-end-asset')}}/assets
-/images/girl.jpg" class="card-img" alt="" /></a>
-                            <div class="card-img-overlay">
-                                <ul class="category-tag-list">
-                                    <li class="category-tag-name">
-                                        <a href="#">Lifestyle</a>
-                                    </li>
-                                </ul>
-                                <h5 class="card-title title-font">
-                                    <a href="single-layout-one.html">Lifestyle of woman in London</a>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card simple-overlay-card mt-0">
-                            <a href="single-layout-one.html"><img src="{{asset('front-end-asset')}}/assets
-/images/orange-bus.jpg" class="card-img" alt="" /></a>
-                            <div class="card-img-overlay">
-                                <ul class="category-tag-list">
-                                    <li class="category-tag-name">
-                                        <a href="#">Lifestyle</a>
-                                    </li>
-                                </ul>
-                                <h5 class="card-title title-font">
-                                    <a href="single-layout-one.html">10 ideas for travelling more</a>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card simple-overlay-card mt-0">
-                            <a href="single-layout-one.html"><img src="{{asset('front-end-asset')}}/assets
-/images/shoes.jpg" class="card-img" alt="" /></a>
-                            <div class="card-img-overlay">
-                                <ul class="category-tag-list">
-                                    <li class="category-tag-name">
-                                        <a href="#">Lifestyle</a>
-                                    </li>
-                                </ul>
-                                <h5 class="card-title title-font">
-                                    <a href="single-layout-one.html">Top 5 trekking destinations of the world</a>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </section>
     <!-- Banner section end -->
@@ -132,9 +81,13 @@
             <div class="section-title">
                 <h2>Featured Authors</h2>
             </div>
+            @php $i=0 @endphp
             <div class="row no-gutters">
                 @foreach($authors as $author)
-                    <div class="col-md-3 mx-4">
+                    @if($i++ == 3)
+                        @break
+                    @else
+                    <div class="col-md-4 px-4">
                         <div class="card border-0 card-450">
                             <a href="single-layout-one.html">
                                 <img src="{{asset($author->image)}}" class="card-img-top" alt="" height="300px"/>
@@ -147,12 +100,13 @@
                                 </ul>
                                 <h5 class="card-title title-font">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, eveniet iste maiores nobis perferendis quod unde ut. Quaerat, quia, voluptate.
+                                        {{$author->description}}
                                     </p>
                                 </h5>
                             </div>
                         </div>
                     </div>
+                      @endif
                 @endforeach
 
             </div>
@@ -170,113 +124,27 @@
                 <div class="col-md-7 col-lg-8">
                     <div class="posts-wrapper">
                         <div class="row">
-                            <div class="col-lg-8">
-                                <div class="card card-350">
-                                    <a href="single-layout-one.html">
-                                        <img src="{{asset('front-end-asset')}}/assets
-/images/city-pink.jpg" class="card-img-top" alt="" />
-                                    </a>
-                                    <div class="card-body px-0">
-                                        <ul class="category-tag-list">
-                                            <li class="category-tag-name">
-                                                <a href="#">Travel</a>
-                                            </li>
-                                            <li class="category-tag-name">
-                                                <a href="#">Lifestyle</a>
-                                            </li>
-                                        </ul>
-                                        <h5 class="card-title title-font">
-                                            <a href="single-layout-one.html">
-                                                Remember before moving to a new city</a>
-                                        </h5>
+                            @foreach($categories as $cat)
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <a href="single-layout-one.html">
+                                            <img src="{{asset($cat->image)}}" alt="" height="150px" width="100%"/>
+                                        </a>
+                                        <div class="card-body px-0">
+                                            <ul class="category-tag-list">
+                                                <li class="category-tag-name">
+                                                    <a href="#">{{$cat->category_name}}</a>
+                                                </li>
+
+                                            </ul>
+                                            <h5 class="card-title title-font">
+                                                <a href="#">
+                                                    {{$cat->description}} </a>
+                                            </h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card card-350">
-                                    <a href="single-layout-one.html">
-                                        <img src="{{asset('front-end-asset')}}/assets
-/images/airport.jpg" class="card-img-top" alt="" />
-                                    </a>
-                                    <div class="card-body px-0">
-                                        <ul class="category-tag-list">
-                                            <li class="category-tag-name">
-                                                <a href="#">Travel</a>
-                                            </li>
-                                            <li class="category-tag-name">
-                                                <a href="#">Lifestyle</a>
-                                            </li>
-                                        </ul>
-                                        <h5 class="card-title title-font">
-                                            <a href="single-layout-one.html">
-                                                Travel more in 2020</a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a href="single-layout-one.html">
-                                        <img src="{{asset('front-end-asset')}}/assets
-/images/forest.jpg" class="card-img-top" alt="" />
-                                    </a>
-                                    <div class="card-body px-0">
-                                        <ul class="category-tag-list">
-                                            <li class="category-tag-name">
-                                                <a href="#">Travel</a>
-                                            </li>
-                                            <li class="category-tag-name">
-                                                <a href="#">Nature</a>
-                                            </li>
-                                        </ul>
-                                        <h5 class="card-title title-font">
-                                            <a href="single-layout-one.html">
-                                                You will get lost in these woods</a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a href="single-layout-one.html">
-                                        <img src="{{asset('front-end-asset')}}/assets
-/images/cup.jpg" class="card-img-top" alt="" />
-                                    </a>
-                                    <div class="card-body px-0">
-                                        <ul class="category-tag-list">
-                                            <li class="category-tag-name">
-                                                <a href="#">Travel</a>
-                                            </li>
-                                        </ul>
-                                        <h5 class="card-title title-font">
-                                            <a href="single-layout-one.html">
-                                                How roaming around is good for you</a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a href="single-layout-one.html">
-                                        <img src="{{asset('front-end-asset')}}/assets
-/images/coach.jpg" class="card-img-top" alt="" />
-                                    </a>
-                                    <div class="card-body px-0">
-                                        <ul class="category-tag-list">
-                                            <li class="category-tag-name">
-                                                <a href="#">Travel</a>
-                                            </li>
-                                            <li class="category-tag-name">
-                                                <a href="#">Lifestyle</a>
-                                            </li>
-                                        </ul>
-                                        <h5 class="card-title title-font">
-                                            <a href="single-layout-one.html">
-                                                Old and beautiful </a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -286,139 +154,45 @@
                             <h5><i class="fas fa-circle"></i>Recent Posts</h5>
                         </div>
                         <div class="sidebar-content author-posts">
-                            <div class="card mb-3">
-                                <div class="row no-gutters">
-                                    <div class="col-4 col-md-4">
-                                        <a href="single-layout-one.html">
-                                            <img src="{{asset('front-end-asset')}}/assets
-/images/alone-house.jpg" class="card-img" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-8 col-md-8">
-                                        <div class="card-body">
-                                            <ul class="category-tag-list mb-0">
-                                                <li class="category-tag-name">
-                                                    <a href="#">Lifestyle</a>
-                                                </li>
-                                            </ul>
-                                            <h5 class="card-title title-font"><a href="single-layout-one.html">Abandon Houses</a>
-                                            </h5>
-                                            <div class="author-date">
-                                                <a class="date" href="#">
-                                                    <span>21 Dec, 2019</span>
-                                                </a>
+                            @php $i=0; $cat_name = ' ' @endphp
+                            @foreach($blogs as $blog)
+                                @if($i == 3)
+                                    @break
+                                @else
+                                @if($blog->category->category_name != $cat_name)
+                                        <div class="card mb-3">
+                                            <div class="row no-gutters">
+                                                <div class="col-4 col-md-4">
+                                                    <a href="single-layout-one.html">
+                                                        <img src="{{asset($blog->image)}}" class="card-img" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="col-8 col-md-8">
+                                                    <div class="card-body">
+                                                        <ul class="category-tag-list mb-0">
+                                                            <li class="category-tag-name">
+                                                                <a href="#">{{$blog->category->category_name}}</a>
+                                                            </li>
+                                                        </ul>
+                                                        <h5 class="card-title title-font"><a href="{{route('blog.details', ['slug'=> $blog->slug])}}">{{$blog->blog_title}}</a>
+                                                        </h5>
+                                                        <div class="author-date">
+                                                            <a class="date" href="#">
+                                                                <span>{{$blog->date}}</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-3">
-                                <div class="row no-gutters">
-                                    <div class="col-4 col-md-4">
-                                        <a href="single-layout-one.html">
-                                            <img src="{{asset('front-end-asset')}}/assets
-/images/time.jpg" class="card-img" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-8 col-md-8">
-                                        <div class="card-body">
-                                            <ul class="category-tag-list mb-0">
-                                                <li class="category-tag-name">
-                                                    <a href="#">Lifestyle</a>
-                                                </li>
-                                            </ul>
-                                            <h5 class="card-title title-font"><a href="single-layout-one.html">Making time for travel</a>
-                                            </h5>
-                                            <div class="author-date">
-                                                <a class="date" href="#">
-                                                    <span>21 Dec, 2019</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-3">
-                                <div class="row no-gutters">
-                                    <div class="col-4 col-md-4">
-                                        <a href="single-layout-one.html">
-                                            <img src="{{asset('front-end-asset')}}/assets
-/images/beach-sea.jpg" class="card-img" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-8 col-md-8">
-                                        <div class="card-body">
-                                            <ul class="category-tag-list mb-0">
-                                                <li class="category-tag-name">
-                                                    <a href="#">Lifestyle</a>
-                                                </li>
-                                            </ul>
-                                            <h5 class="card-title title-font"><a href="single-layout-one.html">How writing has improved my
-                                                    daily life</a>
-                                            </h5>
-                                            <div class="author-date">
-                                                <a class="date" href="#">
-                                                    <span>21 Dec, 2019</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-3">
-                                <div class="row no-gutters">
-                                    <div class="col-4 col-md-4">
-                                        <a href="single-layout-one.html">
-                                            <img src="{{asset('front-end-asset')}}/assets
-/images/taj.jpg" class="card-img" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-8 col-md-8">
-                                        <div class="card-body">
-                                            <ul class="category-tag-list mb-0">
-                                                <li class="category-tag-name">
-                                                    <a href="#">photography</a>
-                                                </li>
-                                            </ul>
-                                            <h5 class="card-title title-font"><a href="single-layout-one.html">Super easy ways to learn
-                                                    about
-                                                    photography</a>
-                                            </h5>
-                                            <div class="author-date">
-                                                <a class="date" href="#">
-                                                    <span>21 Dec, 2019</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-3">
-                                <div class="row no-gutters">
-                                    <div class="col-4 col-md-4">
-                                        <a href="single-layout-one.html">
-                                            <img src="{{asset('front-end-asset')}}/assets
-/images/air-ballon.jpg" class="card-img" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-8 col-md-8">
-                                        <div class="card-body">
-                                            <ul class="category-tag-list mb-0">
-                                                <li class="category-tag-name">
-                                                    <a href="#">Travel</a>
-                                                </li>
-                                            </ul>
-                                            <h5 class="card-title title-font"><a href="single-layout-one.html">Fly above clouds</a>
-                                            </h5>
-                                            <div class="author-date">
-                                                <a class="date" href="#">
-                                                    <span>21 Dec, 2019</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        @php
+                                            $cat_name = $blog->category->category_name;
+                                            $i++;
+                                        @endphp
+                                @endif
+
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>

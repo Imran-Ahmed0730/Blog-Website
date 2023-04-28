@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
+use App\Models\Category;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Session;
@@ -9,7 +11,10 @@ use Session;
 class CustomerController extends Controller
 {
     public function index(){
-        return view('front-end.register.register');
+        return view('front-end.register.register', [
+            'categories'=>Category::where('status', 1)->get(),
+            'authors' => Author::where('status', 1)->get()
+        ]);
     }
     public function newCustomer(Request $request){
         Customer::newCustomer($request);
@@ -23,7 +28,10 @@ class CustomerController extends Controller
     }
 
     public function customerLogin(){
-        return view('front-end.login.login');
+        return view('front-end.login.login', [
+            'categories'=>Category::where('status', 1)->get(),
+            'authors' => Author::where('status', 1)->get()
+        ]);
     }
 
     public function customerLogInCheck(Request $request){

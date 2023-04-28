@@ -12,6 +12,7 @@
                         <tr>
                             <th>SL</th>
                             <th>Category Name</th>
+                            <th>Description</th>
                             <th>Image</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -21,6 +22,7 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>{{$category->category_name}}</td>
+                                <td>{{$category->description}}</td>
                                 <td>
                                     <img src="{{asset($category->image)}}" alt="" style="height: 100px; width: 100px;">
                                 </td>

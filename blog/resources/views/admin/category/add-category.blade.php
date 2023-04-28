@@ -15,6 +15,10 @@
                                 <input type="text" class="form-control" name="category_name">
                             </div>
                             <div class="col-12">
+                                <label class="form-label">About Category</label>
+                                <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+                            </div>
+                            <div class="col-12">
                                 <label class="form-label">Image</label>
                                 <input type="file" class="form-control" name="image">
                             </div>

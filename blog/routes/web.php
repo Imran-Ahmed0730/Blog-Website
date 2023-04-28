@@ -14,7 +14,7 @@ Route::get('/about-author/{id}',[BlogController::class, 'aboutAuthor'])->name('a
 Route::get('/blog-details/{slug}',[BlogController::class, 'blogDetails'])->name('blog.details');
 
 
-Route::get('/register-register', [CustomerController::class, 'index'])->name('customer.register');
+Route::get('/customer-register', [CustomerController::class, 'index'])->name('customer.register');
 Route::post('/new-register', [CustomerController::class, 'newCustomer'])->name('new.register');
 Route::get('/customer-login', [CustomerController::class, 'customerLogin'])->name('customer.login');
 Route::post('/customer-login', [CustomerController::class, 'customerLoginCheck'])->name('customer.login');
@@ -64,4 +64,8 @@ Route::middleware([
     Route::post('/update-blog', [blogController::class, 'updateBlog'])->name('update.blog');
     Route::get('/status-blog/{id}', [blogController::class, 'statusBlog'])->name('status.blog');
     Route::post('/delete-blog', [blogController::class, 'deleteBlog'])->name('delete.blog');
+
+    Route::get('/manage-comment', [CommentController::class, 'manageComment'])->name('manage.comment');
+    Route::get('/status-comment/{id}', [CommentController::class, 'statusComment'])->name('status.comment');
+    Route::post('/delete-comment', [CommentController::class, 'deleteComment'])->name('delete.comment');
 });
