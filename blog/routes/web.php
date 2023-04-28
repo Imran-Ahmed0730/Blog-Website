@@ -10,6 +10,9 @@ use App\Http\Controllers\CommentController;
 
 Route::get('/',[BlogController::class, 'index'])->name('/');
 Route::get('/all-blogs',[BlogController::class, 'allBlogs'])->name('all.blogs');
+Route::get('/about-website',[BlogController::class, 'about'])->name('about.website');
+Route::get('/about-category/{id}',[BlogController::class, 'aboutCategory'])->name('about.category');
+Route::get('/contact-us',[BlogController::class, 'contact'])->name('contact.us');
 Route::get('/about-author/{id}',[BlogController::class, 'aboutAuthor'])->name('about.author');
 Route::get('/blog-details/{slug}',[BlogController::class, 'blogDetails'])->name('blog.details');
 

@@ -33,15 +33,15 @@
                         @foreach($blogs as $blog)
                             <div class="col-md-6 col-lg-3">
                                 <div class="card small-card simple-overlay-card">
-                                    <a href="#"><img src="{{asset($blog->image)}}" class="card-img" alt="" /></a>
+                                    <a href="{{route('blog.details', ['slug'=>$blog->slug])}}"><img src="{{asset($blog->image)}}" class="card-img" alt="" /></a>
                                     <div class="card-img-overlay">
                                         <ul class="category-tag-list mb-0">
                                             <li class="category-tag-name">
-                                                <a href="#">{{$blog->category->category_name}}</a>
+                                                <a href="{{route('blog.details', ['slug'=>$blog->slug])}}">{{$blog->category->category_name}}</a>
                                             </li>
                                         </ul>
                                         <h5 class="card-title title-font">
-                                            <a href="#">{{$blog->blog_title}}</a>
+                                            <a href="{{route('blog.details', ['slug'=>$blog->slug])}}">{{$blog->blog_title}}</a>
                                         </h5>
                                     </div>
                                 </div>

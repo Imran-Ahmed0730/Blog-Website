@@ -62,7 +62,7 @@
                             </a>
                             <ul class="drop-menu">
                                 @foreach($categories as $cat)
-                                    <li class="drop-menu-item"><a href="#">{{$cat->category_name}}</a></li>
+                                    <li class="drop-menu-item"><a href="{{route('about.category', ['id'=> $cat->id])}}">{{$cat->category_name}}</a></li>
                                 @endforeach
 
                             </ul>
@@ -77,8 +77,8 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a href="{{route('all.blogs')}}" class="nav-link">Blogs</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="{{route('about.website')}}" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="{{route('contact.us')}}" class="nav-link">Contact</a></li>
                     </ul>
                     <div class="sticky-search">
                         <div class="search-wrapper">

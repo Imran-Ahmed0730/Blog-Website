@@ -8,7 +8,7 @@
                         <div class="card mb-4">
                             <div class="row no-gutters align-items-center">
                                 <div class="col-md-4">
-                                    <a href="single-layout-one.html">
+                                    <a href="{{route('blog.details', ['slug'=>$blog->slug])}}">
                                         <img src="{{asset($blog->image)}}" class="img-fluid">
                                     </a>
                                 </div>
@@ -16,18 +16,18 @@
                                     <div class="card-body">
                                         <ul class="category-tag-list">
                                             <li class="category-tag-name">
-                                                <a href="#">{{$blog->category->category_name}}</a>
+                                                <a href="{{route('about.category', ['id'=>$blog->category->id])}}">{{$blog->category->category_name}}</a>
                                             </li>
                                         </ul>
                                         <h5 class="card-title title-font"><a href="{{route('blog.details', ['slug'=>$blog->slug])}}">{{$blog->blog_title}}</a>
                                         </h5>
                                         <p class="card-text">{{$blog->description}}<p>
                                         <div class="author-date my-2">
-                                            <a class="author" href="#">
+                                            <a class="author" href="{{route('blog.details', ['slug'=>$blog->slug])}}">
                                                 <img src="{{asset($blog->author->image)}}" class="rounded-circle" />
                                                 <span class="writer-name-small">{{$blog->author->name}}</span>
                                             </a>
-                                            <a class="date" href="#">
+                                            <a class="date" href="{{route('blog.details', ['slug'=>$blog->slug])}}">
                                                 <span>{{$blog->date}}</span>
                                             </a>
                                         </div>

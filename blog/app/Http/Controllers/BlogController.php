@@ -38,6 +38,29 @@ class BlogController extends Controller
             'directed_author'=>Author::find($id)
         ]);
     }
+
+    public function aboutCategory($id){
+//        return Blog::where('category_id', $id)->get();
+        return view('front-end.category.category',[
+            'blogs'=>Blog::where('category_id', $id)->get(),
+            'categories'=>Category::where('status', 1)->get(),
+            'category'=> Category::where('id', $id)->first(),
+            'authors' => Author::where('status', 1)->get(),
+        ]);
+    }
+
+    public function about(){
+        return view('front-end.about.about',[
+            'categories'=>Category::where('status', 1)->get(),
+            'authors' => Author::where('status', 1)->get(),
+        ]);
+    }
+    public function contact(){
+        return view('front-end.contact.contact',[
+            'categories'=>Category::where('status', 1)->get(),
+            'authors' => Author::where('status', 1)->get(),
+        ]);
+    }
     public function blogDetails($slug){
         $blog = Blog::where('slug', $slug)->first();
         $comment = Comment::where('blog_id', $blog->id)->get();
