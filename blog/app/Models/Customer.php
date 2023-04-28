@@ -22,6 +22,7 @@ class Customer extends Model
 
         Session::put('customerId', self::$customer->id);
         Session::put('customerName', self::$customer->name);
+        Session::put('customerEmail', self::$customer->email);
     }
 
     private static function saveImage($request){

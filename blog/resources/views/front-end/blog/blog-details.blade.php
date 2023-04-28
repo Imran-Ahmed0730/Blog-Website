@@ -54,115 +54,60 @@
                         </div>
                         <div class="blog-author-info">
                             <div class="author-img">
-                                <img src="assets/images/writer.jpg" alt="">
+                                <img src="{{asset($blog->author->image)}}" alt="">
                             </div>
                             <div class="author-desc">
                                 <small>written by</small>
-                                <h5>Julie Perry</h5>
+                                <h5>{{$blog->author->name}}</h5>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magni ipsa
                                     fugiat pariatur! </p>
                             </div>
                         </div>
                         <div class="comment-section">
-                            <div class="all-response">
-                                <a class="btn view-all-btn" data-toggle="collapse" href="#collapseExample" role="button"
-                                   aria-expanded="false" aria-controls="collapseExample">
-                                    View all comments ( 3 )
-                                </a>
-                            </div>
-                            <div class="collapse" id="collapseExample">
-                                <div class="card comment-card">
-                                    <div class="card-body">
-                                        <div class="author-date">
-                                            <div class="author">
-                                                <img src="assets/images/person1.jpg" alt="" class="rounded-circle" />
-                                            </div>
-                                            <div class="inner-author-date">
-                                                <div class="author">
-                                                    <span class="">Ana Grainger</span>
-                                                </div>
-                                                <div class="date"><span>1 Feb, 2019</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="comment-text mt-2">
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos quos optio
-                                                ab numquam excepturi commodi nam omnis eaque, culpa earum!</p>
-                                        </div>
-                                    </div>
 
+                                <div class="all-response">
+                                    <a class="btn view-all-btn" data-toggle="collapse" href="#collapseExample" role="button"
+                                       aria-expanded="false" aria-controls="collapseExample">
+                                        View all comments ({{$count}})
+                                    </a>
+                                </div>
+                                <div class="collapse" id="collapseExample">
+                                    @foreach($comments as $comment)
                                     <div class="card comment-card">
                                         <div class="card-body">
                                             <div class="author-date">
                                                 <div class="author">
-                                                    <img src="assets/images/writer.jpg" alt="" class="rounded-circle" />
+                                                    <img src="{{asset($comment->user->image)}}" alt="" class="rounded-circle" />
                                                 </div>
                                                 <div class="inner-author-date">
                                                     <div class="author">
-                                                        <span>Julie Perry</span>
+                                                        <span class="">{{$comment->user->name}}</span>
                                                     </div>
-                                                    <div class="date"><span>1 Feb, 2019</span></div>
+                                                    <div class="date"><span>{{date('F j, y',strtotime($comment->created_at)) }}</span></div>
                                                 </div>
                                             </div>
                                             <div class="comment-text mt-2">
-                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos quos optio
-                                                    ab numquam excepturi commodi nam omnis eaque, culpa earum!</p>
+                                                <p>{{$comment->comment}}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card comment-card">
-                                    <div class="card-body">
-                                        <div class="author-date">
-                                            <div class="author">
-                                                <img src="assets/images/person2.jpg" alt="" class="rounded-circle" />
-                                            </div>
-                                            <div class="inner-author-date">
-                                                <div class="author">
-                                                    <span class="">Iman Lindsay</span>
-                                                </div>
-                                                <div class="date"><span>1 Feb, 2019</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="comment-text mt-2">
-                                            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsum voluptatum suscipit
-                                                ipsam, dolorem quas animi magnam repellendus. Quidem unde maxime fugit, cupiditate veritatis
-                                                maiores dolor corporis consequuntur pariatur quo culpa ipsum! Eos aliquid deserunt incidunt
-                                                ratione ullam eaque. Ducimus?</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card comment-card">
-                                    <div class="card-body">
-                                        <div class="author-date">
-                                            <div class="author">
-                                                <img src="assets/images/person3.jpg" alt="" class="rounded-circle" />
-                                            </div>
-                                            <div class="inner-author-date">
-                                                <div class="author">
-                                                    <span class="">Simone Bob</span>
-                                                </div>
-                                                <div class="date"><span>1 Feb, 2019</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="comment-text mt-2">
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos quos optio
-                                                ab numquam excepturi commodi nam omnis eaque, culpa earum!</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                             @if(Session::get('customerId'))
-                                <form class="comment-form">
-                                    <h5>Leave a comment</h5>
+                                <form class="comment-form" action="{{route('save.comment')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="blog_id" value="{{$blog->id}}">
+                                    <h5 >Leave a comment</h5>
+                                    <h6 class="text-center text-success mb-5">{{session('message')}}</h6>
                                     <div class="row">
                                         <div class="col-12 col-md-6 mb-4">
-                                            <input type="text" class="form-control" value="{{$user->name}}" readonly>
+                                            <input type="text" class="form-control" value="{{Session::get('customerName')}}" readonly>
                                         </div>
                                         <div class="col-12 col-md-6 mb-4">
-                                            <input type="email" class="form-control" value="{{$user->email}}" readonly>
+                                            <input type="email" class="form-control" value="{{Session::get('customerEmail')}}" readonly>
                                         </div>
                                         <div class="col-12 mb-4">
-                                            <textarea rows="7" class="form-control" placeholder="Comment"></textarea>
+                                            <textarea rows="7" class="form-control" name="comment" placeholder="Comment"></textarea>
                                         </div>
                                     </div>
                                     <button class="btn btn-solid">Submit</button>
@@ -172,10 +117,10 @@
                             @endif
 
                         </div>
-
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 @endsection

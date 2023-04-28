@@ -83,6 +83,7 @@ class Blog extends Model
         self::$blog->delete();
     }
 
+    //relationship
     public function category(){
         return $this->belongsTo(Category::class);
     }

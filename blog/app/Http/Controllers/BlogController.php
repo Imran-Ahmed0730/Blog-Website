@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Author;
 use App\Models\Blog;
+use App\Models\Comment;
 use Session;
 
 use App\Models\Category;
@@ -17,9 +18,13 @@ class BlogController extends Controller
         ]);
     }
     public function blogDetails($slug){
+        $blog = Blog::where('slug', $slug)->first();
+        $comment = Comment::where('blog_id', $blog->id)->get();
+
         return view('front-end.blog.blog-details', [
-            'blog'=>Blog::where('slug', $slug)->first(),
-            'user'=>Customer::where('id', Session::get('customerId'))->first()
+            'blog'=>$blog,
+            'comments'=>Comment::with('user')->where('blog_id', $blog->id)->get(),
+            'count'=>count($comment)
         ]);
     }
     public function addBlog(){
@@ -58,7 +63,6 @@ class BlogController extends Controller
     }
 
     public function deleteBlog(Request $request){
-//        return $request;
         Blog::deleteBlog($request);
         return back()->with('message', 'Blog deleted!!');
     }
