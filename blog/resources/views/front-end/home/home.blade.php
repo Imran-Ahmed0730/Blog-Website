@@ -130,68 +130,31 @@
     <section class="featured-posts section-padding">
         <div class="container">
             <div class="section-title">
-                <h2>Featured posts</h2>
+                <h2>Featured Authors</h2>
             </div>
             <div class="row no-gutters">
-                <div class="col-md-3">
-                    <div class="card border-0 card-350">
-                        <a href="single-layout-one.html">
-                            <img src="{{asset('front-end-asset')}}/assets
-/images/travel-man.jpg" class="card-img-top" alt="" />
-                        </a>
-                        <div class="card-body px-0">
-                            <ul class="category-tag-list">
-                                <li class="category-tag-name">
-                                    <a href="#">Travel</a>
-                                </li>
-                            </ul>
-                            <h5 class="card-title title-font">
-                                <a href="single-layout-one.html">
-                                    Top 10 mysterious places you didn't know
-                                </a>
-                            </h5>
+                @foreach($authors as $author)
+                    <div class="col-md-3 mx-4">
+                        <div class="card border-0 card-450">
+                            <a href="single-layout-one.html">
+                                <img src="{{asset($author->image)}}" class="card-img-top" alt="" height="300px"/>
+                            </a>
+                            <div class="card-body px-0">
+                                <ul class="category-tag-list">
+                                    <li class="category-tag-name">
+                                        <a href="#">{{$author->name}}</a>
+                                    </li>
+                                </ul>
+                                <h5 class="card-title title-font">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, eveniet iste maiores nobis perferendis quod unde ut. Quaerat, quia, voluptate.
+                                    </p>
+                                </h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mx-md-4 border-0 card-500">
-                        <a href="single-layout-one.html"><img src="{{asset('front-end-asset')}}/assets
-/images/banner-1.jpg" class="card-img" alt="" /></a>
-                        <div class="card-img-overlay">
-                            <ul class="category-tag-list">
-                                <li class="category-tag-name">
-                                    <a href="#">Lifestyle</a>
-                                </li>
-                                <li class="category-tag-name">
-                                    <a href="#">Travel</a>
-                                </li>
-                            </ul>
-                            <h5 class="card-title title-font">
-                                <a href="single-layout-one.html">Take the stress out with nature</a>
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-350 border-0">
-                        <a href="single-layout-one.html">
-                            <img src="{{asset('front-end-asset')}}/assets
-/images/biker.jpg" class="card-img-top" alt="" />
-                        </a>
-                        <div class="card-body px-0">
-                            <ul class="category-tag-list">
-                                <li class="category-tag-name">
-                                    <a href="#">Lifestyle</a>
-                                </li>
-                            </ul>
-                            <h5 class="card-title title-font">
-                                <a href="single-layout-one.html">
-                                    Solo Traveller
-                                </a>
-                            </h5>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -201,7 +164,7 @@
     <section class="kavya-posts popular">
         <div class="container">
             <div class="section-title">
-                <h2>Popular Posts</h2>
+                <h2>Popular Categories</h2>
             </div>
             <div class="row">
                 <div class="col-md-7 col-lg-8">
@@ -468,41 +431,46 @@
     <section class="popular-posts section-padding">
         <div class="container">
             <div class="section-title">
-                <h2>More from Kavya</h2>
+                <h2>Recent Blogs</h2>
             </div>
             <div class="row">
                 <div class="col-md-7 col-lg-8">
+                    @php $i=0 @endphp
                     @foreach($blogs as $blog)
-                        <div class="card mb-4">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col-md-4">
-                                    <a href="single-layout-one.html">
-                                        <img src="{{asset($blog->image)}}" class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <ul class="category-tag-list">
-                                            <li class="category-tag-name">
-                                                <a href="#">{{$blog->category->category_name}}</a>
-                                            </li>
-                                        </ul>
-                                        <h5 class="card-title title-font"><a href="{{route('blog.details', ['slug'=>$blog->slug])}}">{{$blog->blog_title}}</a>
-                                        </h5>
-                                        <p class="card-text">{{$blog->description}}<p>
-                                        <div class="author-date">
-                                            <a class="author" href="#">
-                                                <img src="{{asset($blog->author->image)}}" class="rounded-circle" />
-                                                <span class="writer-name-small">{{$blog->author->name}}</span>
-                                            </a>
-                                            <a class="date" href="#">
-                                                <span>{{$blog->date}}</span>
-                                            </a>
+                        @if($i++ == 3)
+                            @break
+                        @else
+                            <div class="card mb-4">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-md-4">
+                                        <a href="single-layout-one.html">
+                                            <img src="{{asset($blog->image)}}" class="img-fluid">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <ul class="category-tag-list">
+                                                <li class="category-tag-name">
+                                                    <a href="#">{{$blog->category->category_name}}</a>
+                                                </li>
+                                            </ul>
+                                            <h5 class="card-title title-font"><a href="{{route('blog.details', ['slug'=>$blog->slug])}}">{{$blog->blog_title}}</a>
+                                            </h5>
+                                            <p class="card-text">{{$blog->description}}<p>
+                                            <div class="author-date">
+                                                <a class="author" href="{{route('blog.details', ['slug'=>$blog->slug])}}">
+                                                    <img src="{{asset($blog->author->image)}}" class="rounded-circle" />
+                                                    <span class="writer-name-small">{{$blog->author->name}}</span>
+                                                </a>
+                                                <a class="date" href="{{route('blog.details', ['slug'=>$blog->slug])}}">
+                                                    <span>{{$blog->date}}</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
             </div>

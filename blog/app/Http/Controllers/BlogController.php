@@ -14,7 +14,27 @@ class BlogController extends Controller
 {
     public function index(){
         return view('front-end.home.home', [
-            'blogs'=>Blog::where('status', 1)->get()
+            'blogs'=>Blog::where('status', 1)->orderby('date', 'desc')->get(),
+            'categories'=>Category::where('status', 1)->get(),
+            'authors' => Author::where('status', 1)->get()
+        ]);
+    }
+
+    public function allBlogs(){
+        return view('front-end.blog.all-blogs',[
+            'blogs'=>Blog::where('status', 1)->orderby('date', 'desc')->get(),
+            'categories'=>Category::where('status', 1)->get(),
+            'authors' => Author::where('status', 1)->get()
+        ]);
+    }
+
+    public function aboutAuthor($id){
+        $author = Author::find($id);
+        return view('front-end.author.author', [
+            'blogs'=>Blog::with('category')->where('author_id', $author->id)->get(),
+            'categories'=>Category::where('status', 1)->get(),
+            'authors' => Author::where('status', 1)->get(),
+            'directed_author'=>Author::find($id)
         ]);
     }
     public function blogDetails($slug){
@@ -23,6 +43,8 @@ class BlogController extends Controller
 
         return view('front-end.blog.blog-details', [
             'blog'=>$blog,
+            'categories'=>Category::where('status', 1)->get(),
+            'authors' => Author::where('status', 1)->get(),
             'comments'=>Comment::with('user')->where('blog_id', $blog->id)->get(),
             'count'=>count($comment)
         ]);

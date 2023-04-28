@@ -9,6 +9,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CommentController;
 
 Route::get('/',[BlogController::class, 'index'])->name('/');
+Route::get('/all-blogs',[BlogController::class, 'allBlogs'])->name('all.blogs');
+Route::get('/about-author/{id}',[BlogController::class, 'aboutAuthor'])->name('about.author');
 Route::get('/blog-details/{slug}',[BlogController::class, 'blogDetails'])->name('blog.details');
 
 
